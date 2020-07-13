@@ -12,7 +12,7 @@ gameState.successfulMatches = 0;
 gameState.waiting = false;
 
 var buttons = new Array(16);
-var colors = ["violet", "red", "#6F5846", "yellow",
+var colors = ["violet", "red", "#613613", "yellow",
 			  "green", "turquoise", "indigo", "white"];
 var unknownButtonsColor = "black";
 var secretButtonColors = new Array(16);
