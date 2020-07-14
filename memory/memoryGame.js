@@ -32,11 +32,16 @@ function setInstructionText(text, size = 1) {
 function setupButtons() {
 	var div = document.getElementById("buttons");
 	
-	for(var id = 0; id < 16; id++) {
+	// - LET INSTEAD OF VAR!!!
+	// Confusing! :D
+	// var = function scope, let = block scope.
+	// by making this let instead of var, buttonClicked(id) will get the variable at the time
+	// instead of what the variable -ends- as (16)
+	for(let id = 0; id < 16; id++) {
 		if(div.childElementCount < 16) {
 			var button = document.createElement("button");
 			button.className = "memoryButton";
-			button.addEventListener('click', buttonClicked.bind(this, id));
+			button.onclick = function() { buttonClicked(id); };
 			div.append(button);
 			buttons[id] = button;
 		}
