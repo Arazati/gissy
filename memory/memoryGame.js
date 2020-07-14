@@ -6,6 +6,8 @@ const mode = { //these numbers are arbitrary, and they can even be strings if yo
 }
 
 var gameState = {}; //empty object, we can add arbitrary variables to it with .
+//var gameState = new Object(); // same thing, just a different way to say it
+
 gameState.mode = mode.WaitingForFirstClick;
 gameState.firstCard = null;
 gameState.successfulMatches = 0;
@@ -44,7 +46,7 @@ function setupButtons() {
 
 			//both of these do the same thing,
 			// but the second one doesn't work if id is a 'var' instead of a 'let'
-			
+
 			//button.addEventListener('click', buttonClicked.bind(this, id));
 			button.onclick = function() { buttonClicked(id); };
 
