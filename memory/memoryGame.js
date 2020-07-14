@@ -41,7 +41,13 @@ function setupButtons() {
 		if(div.childElementCount < 16) {
 			var button = document.createElement("button");
 			button.className = "memoryButton";
+
+			//both of these do the same thing,
+			// but the second one doesn't work if id is a 'var' instead of a 'let'
+			
+			//button.addEventListener('click', buttonClicked.bind(this, id));
 			button.onclick = function() { buttonClicked(id); };
+
 			div.append(button);
 			buttons[id] = button;
 		}
