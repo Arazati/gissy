@@ -14,7 +14,6 @@ gameState.waiting = false;
 var buttons = new Array(16);
 var colors = ["violet", "red", "#613613", "yellow",
 			  "green", "turquoise", "indigo", "white"];
-var unknownButtonsColor = "black";
 var secretButtonColors = new Array(16);
 
 var secondsToWaitAfterFailedMatch = .4;
@@ -93,17 +92,15 @@ function randomizeGameState() {
 }
 
 function clickedFirstCard(id) {
+	if(buttons[id].style.backgroundColor != "") return;
+
 	gameState.firstCard = id;
 	buttons[id].style.backgroundColor = secretButtonColors[id];
 	gameState.mode = mode.WaitingOnSecondCard;
 }
 
 function clickedSecondCard(id) {
-	if(gameState.firstCard == id)
-	{
-		console.log("same card, dummy");
-		return;
-	}
+	if(buttons[id].style.backgroundColor != "") return;
 
 	buttons[id].style.backgroundColor = secretButtonColors[id];
 
@@ -115,8 +112,8 @@ function clickedSecondCard(id) {
 
 		//delay
 		setTimeout(function() {
-			buttons[id].style.backgroundColor = unknownButtonsColor;
-			buttons[gameState.firstCard].style.backgroundColor = unknownButtonsColor;
+			buttons[id].style.backgroundColor = "";
+			buttons[gameState.firstCard].style.backgroundColor = "";
 			gameState.waiting = false;
 		}, secondsToWaitAfterFailedMatch * 1000)
 	}
