@@ -48,11 +48,8 @@ function setupButtons() {
 function buttonClicked(id) {
 
 	if(gameState.waiting) {
-		console.log("WAITING");
 		return;
 	}
-
-	console.log("button " + id + " pressed (waiting: " + gameState.waiting + ") mode: " + gameState.mode);
 
 	switch(gameState.mode) {
 		case mode.WaitingForFirstClick: {
